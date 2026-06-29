@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0a1628;
+  --muted: #475569;
+  --card: rgba(255, 255, 255, 0.75);
+  --border: rgba(148, 163, 184, 0.25);
+  --navy: #0a1628;
+  --gold: #f1b434;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #e2e8f0;
+  --muted: #94a3b8;
+  --card: rgba(15, 23, 42, 0.6);
+  --border: rgba(148, 163, 184, 0.2);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
+}
+
+.font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top right, rgb(241 180 52 / 0.08), transparent 40%),
+    radial-gradient(circle at bottom left, rgb(10 22 40 / 0.06), transparent 45%),
+    var(--background);
+  color: var(--foreground);
+}
+
+.glass {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.section-padding {
+  @apply px-4 py-14 sm:px-6 lg:px-8 lg:py-20;
+}
+
+.container-width {
+  @apply mx-auto w-full max-w-7xl;
+}
